@@ -116,7 +116,7 @@ class PeliculaWidget extends StatelessWidget {
       child: peli,
       onTap: () {
         Navigator.pushNamed(context, "pruebas/paginas/pagina_detalles.dart",
-            arguments: Peliculas_Encines(
+            arguments: Pelicula(
                 title: pelicula.title,
                 image: pelicula.image,
                 resumen: pelicula.resumen,

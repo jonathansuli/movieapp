@@ -97,12 +97,17 @@ class PeliculaWidget extends StatelessWidget {
             fontSize: 30,
           ),
         ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(50),
-          child: Image.network(
-              'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' +
-                  pelicula.image),
-        ),
+        Hero(
+            tag: pelicula.id,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: FadeInImage(
+                  placeholder: AssetImage("lib/assets/cargando.gif"),
+                  image: NetworkImage(
+                    'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' +
+                        pelicula.image,
+                  ),
+                )))
       ],
     );
     return GestureDetector(
@@ -112,7 +117,8 @@ class PeliculaWidget extends StatelessWidget {
             arguments: Pelicula(
                 title: pelicula.title,
                 image: pelicula.image,
-                resumen: pelicula.resumen));
+                resumen: pelicula.resumen,
+                id: pelicula.id));
       },
     );
   }
